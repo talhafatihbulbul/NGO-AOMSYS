@@ -181,9 +181,9 @@
 				\hline
 					Definition & An user registering to the system.\\
 				\hline
-					Precondition & The user opening the program.\\
+					Precondition & -\\
 				\hline
-					Trigger & The user clicks on Register button.\\
+					Trigger & The user clicking on Register button.\\
 				\hline
 					Basic Path & \begin{enumerate}
 						\item The user opens the program.
@@ -225,7 +225,7 @@
 			\hline
 				Precondition & The user has already signed up before.\\
 			\hline
-				Trigger & -\\
+				Trigger & The user opening the program.\\
 			\hline
 				Basic Path & \begin{enumerate}
 					\item The user opens the program.
@@ -266,7 +266,7 @@
 			\hline
 				Precondition & The user is logged in currently.\\
 			\hline
-				Trigger & \\
+				Trigger & The user clicking the log out button.\\
 			\hline
 				Basic Path & \begin{enumerate}
 					\item The user clicks the log out button.
@@ -300,7 +300,7 @@
 			\hline
 				Precondition & The donor is logged in currently.\\
 			\hline
-				Trigger & -\\
+				Trigger & The donor clicking the set donation button.\\
 			\hline
 				Basic Path & \begin{enumerate}
 					\item The donor clicks the set donation button.
@@ -342,7 +342,7 @@
 			\hline
 				Precondition & The donor is logged in currently and has a set donation.\\
 			\hline
-				Trigger & -\\
+				Trigger & The Donor opening their donations.\\
 			\hline
 				Basic Path & \begin{enumerate}
 					\item The Donor opens their donations.
@@ -377,11 +377,11 @@
 			\hline
 				Precondition & -\\
 			\hline
-				Trigger & -\\
+				Trigger & The indigent clicking the Fill for Aid registration button.\\
 			\hline
 				Basic Path & \begin{enumerate}
 					\item The indigent opens the system.
-					\item The indigent selects the Fill for Aid registration button.
+					\item The indigent clicks the Fill for Aid registration button.
 					\item The system opens a form for Aid Registration.
 					\item The indigent fills the form.
 					\item The indigent clicks the okay button.
@@ -422,7 +422,7 @@
 			\hline
 				Precondition & The Operation Coordinator is logged in.\\
 			\hline
-				Trigger & -\\
+				Trigger & The Operation Coordinator clicking on the Review Backlog button.\\
 			\hline
 				Basic Path & \begin{enumerate}
 					\item The Operation Coordinator clicks on the Review Backlog button.
@@ -458,7 +458,7 @@
 			\hline
 				Precondition & The Operation Coordinator is logged in.\\
 			\hline
-				Trigger & -\\
+				Trigger & The Operation Coordinator clicking on Schedule Aid Operation button.\\
 			\hline
 				Basic Path & \begin{enumerate}
 					\item The Operation Coordinator clicks on Schedule Aid Operation button.
@@ -503,7 +503,7 @@
 			\hline
 				Precondition & The System Administrator is logged in.\\
 			\hline
-				Trigger & -\\
+				Trigger & The System Administrator clicking the Manage Users button.\\
 			\hline
 				Basic Path & \begin{enumerate}
 					\item The System Administrator clicks the Manage Users button.
@@ -541,7 +541,7 @@
 			\hline
 				Precondition & The System Administrator is logged in.\\
 			\hline
-				Trigger & -\\
+				Trigger & The System Administrator clicking the Manage Users button.\\
 			\hline
 				Basic Path & \begin{enumerate}
 					\item The System Administrator clicks the Manage Users button.
@@ -579,7 +579,7 @@
 			\hline
 				Precondition & The System Administrator is logged in.\\
 			\hline
-				Trigger & -\\
+				Trigger & The System Administrator clicking the View Volunteer Profiles button.\\
 			\hline
 				Basic Path & \begin{enumerate}
 					\item The System Administrator clicks the View Volunteer Profiles button.
@@ -615,28 +615,73 @@
 			\hline
 				Participating Actor & -\\
 			\hline
-				Definition & A system administrator accepting the profile of a volunteer.\\
+				Definition & A volunteer construction a personal profile to be evaluated by a system administrator.\\
 			\hline
-				Precondition & The System Administrator is logged in.\\
+				Precondition & The Volunteer is logged in.\\
 			\hline
-				Trigger & -\\
+				Trigger & The Volunteer clicking on the Construct Personal Profile Button.\\
 			\hline
 				Basic Path & \begin{enumerate}
-					\item The System Administrator clicks the View Volunteer Profiles button.
-					\item The System views a list of Volunteer Profiles.
-					\item The System Administrator clicks on one of the Volunteer Profiles.
-					\item The System shows the chosen Volunteer Profile.
-					\item The System Administrator checks the profile as long as needed.
-					\item The System Administrator either accepts or rejects the profile.
-					\item The System sets the status of the profile to either accepted or rejected.
-					\item The System notifies either of acceptance or rejection of the profile.
-					\item The System puts the System Administrator back to the list of Volunteer Profiles.
+					\item The Volunteer clicks on the Construct Personal Profile button.
+					\item The System opens a form for the Volunteer to fill in.
+					\item The Volunteer fills in the necessary information.
+					\item The Volunteer clicks the okay button.
+					\item The System saves the profile.
+					\item The System informs the Volunteer of the acceptance.
+					\item The System puts the Volunteer back in the main menu.
 				\end{enumerate}		
 				\\
 			\hline
 				Alternative Path & -\\
 			\hline
-				Exceptional Case & -\\
+				Exceptional Case & \begin{enumerate}
+					\item The Volunteer leaves some blanks while filling the form.
+					\item The Volunteer clicks on the okay button.
+					\item The System rejects the form.
+					\item The System notifies of the rejection and its reason.
+				\end{enumerate}
+				\\
+			\hline
+				Postcondition & -\\
+			\hline
+				Rules & -\\
+			\hline
+				Explanation & -\\
+			\hline
+		\end{tabular}
+		\begin{tabular}{|m{4cm}|m{11.5cm}|}
+			\hline
+				Use Case Name & Delete Account\\
+			\hline
+				Use Case ID & 13\\
+			\hline
+				Primary System Actor & User\\
+			\hline
+				Participating Actor & -\\
+			\hline
+				Definition & A user deleting their account.\\
+			\hline
+				Precondition & The User is logged in.\\
+			\hline
+				Trigger & The user clicking on delete account button.\\
+			\hline
+				Basic Path & \begin{enumerate}
+					\item The User clicks on delete account button.
+					\item The System asks if the user is sure in a prompt.
+					\item The User clicks on yes button.
+					\item The System deletes the user.
+					\item The System logs the user out.
+					\item The System notifies the user of deletion of their account.
+				\end{enumerate}		
+				\\
+			\hline
+				Alternative Path & -\\
+			\hline
+				Exceptional Case & \begin{enumerate}
+					\item The user clicks on no button.
+					\item The System closes the dialog, doing nothing.
+				\end{enumerate}
+				\\
 			\hline
 				Postcondition & -\\
 			\hline
