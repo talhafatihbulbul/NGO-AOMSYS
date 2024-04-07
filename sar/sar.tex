@@ -1,5 +1,6 @@
 \documentclass[a4paper,12pt]{report}
 \usepackage{graphicx}
+\usepackage{array}
 \graphicspath{{./images/}}
 \begin{document}
 	\begin{titlepage}
@@ -161,6 +162,364 @@
 	\chapter{System Models}
 	\section{Use Case Model}
 		\includegraphics[width=216pt,height=351pt]{use_case_diagram.png} % width=8*27 pt,height= 13*27 pt
+		\\ \\
+		\begin{tabular}{|m{4cm}|m{11.5cm}|}
+			\hline
+					Use Case Name & Register\\
+				\hline
+					Use Case ID & 1\\
+				\hline
+					Primary System Actor & User\\
+				\hline
+					Participating Actor & -\\
+				\hline
+					Definition & An user registering to the system.\\
+				\hline
+					Precondition & The user opening the program.\\
+				\hline
+					Trigger & The user clicks on Register button.\\
+				\hline
+					Basic Path & \begin{enumerate}
+						\item The user opens the program.
+						\item The user clicks on Register button.
+						\item The user enters their info.
+						\item The user clicks okay.
+						\item The user is signed up to the system.
+					\end{enumerate}		
+					\\
+				\hline
+					Alternative Path & -\\
+				\hline
+					Exceptional Case & \begin{enumerate}
+						\item The user enters their info incorrectly.
+						\item The system rejects the sign up.
+						\item The system notifies the user of the rejection.
+					\end{enumerate}
+					
+					\\
+				\hline
+					Postcondition & The user is signed up to the system.\\
+				\hline
+					Rules & -\\
+				\hline
+					Explanation & -\\
+			\hline
+		\end{tabular}
+		\begin{tabular}{|m{4cm}|m{11.5cm}|}
+			\hline
+				Use Case Name & Log in\\
+			\hline
+				Use Case ID & 2\\
+			\hline
+				Primary System Actor & User\\
+			\hline
+				Participating Actor & -\\
+			\hline
+				Definition & An user logging into the system.\\
+			\hline
+				Precondition & The user has already signed up before.\\
+			\hline
+				Trigger & -\\
+			\hline
+				Basic Path & \begin{enumerate}
+					\item The user opens the program.
+					\item The user fills in necessary info to log in.
+					\item The user clicks okay.
+					\item The user is logged in to the system.
+					\item The user is put into their respective menu.
+				\end{enumerate}		
+				\\
+			\hline
+				Alternative Path & -\\
+			\hline
+				Exceptional Case & \begin{enumerate}
+					\item The user enters their info incorrectly.
+					\item The system rejects the log in.
+					\item The system notifies the user of the rejection.
+				\end{enumerate}
+				\\
+			\hline
+				Postcondition & The user is signed up to the system.\\
+			\hline
+				Rules & -\\
+			\hline
+				Explanation & -\\
+			\hline
+		\end{tabular}
+		\begin{tabular}{|m{4cm}|m{11.5cm}|}
+			\hline
+				Use Case Name & Log Out\\
+			\hline
+				Use Case ID & 3\\
+			\hline
+				Primary System Actor & User\\
+			\hline
+				Participating Actor & -\\
+			\hline
+				Definition & An user logging out of the system.\\
+			\hline
+				Precondition & The user is logged in currently.\\
+			\hline
+				Trigger & \\
+			\hline
+				Basic Path & \begin{enumerate}
+					\item The user clicks the log out button.
+					\item The system logs user out.
+					\item The user is put back into log in menu.
+				\end{enumerate}		
+				\\
+			\hline
+				Alternative Path & -\\
+			\hline
+				Exceptional Case & -\\
+			\hline
+				Postcondition & The user is logged out of the system.\\
+			\hline
+				Rules & -\\
+			\hline
+				Explanation & -\\
+			\hline
+		\end{tabular}
+		\begin{tabular}{|m{4cm}|m{11.5cm}|}
+			\hline
+				Use Case Name & Set Donation\\
+			\hline
+				Use Case ID & 4\\
+			\hline
+				Primary System Actor & User\\
+			\hline
+				Participating Actor & -\\
+			\hline
+				Definition & A donor setting a donation request.\\
+			\hline
+				Precondition & The donor is logged in currently.\\
+			\hline
+				Trigger & -\\
+			\hline
+				Basic Path & \begin{enumerate}
+					\item The donor clicks the set donation button.
+					\item A new page opens where you can enter info needed for setting a donation.
+					\item The donor enters necessary information.
+					\item The donor clicks okay.
+					\item The donation request is saved.
+					\item The system puts the donor back to the main menu.
+				\end{enumerate}		
+				\\
+			\hline
+				Alternative Path & -\\
+			\hline
+				Exceptional Case & \begin{enumerate}
+					\item The donor doesn't fill required info incomplete.
+					\item The system rejects the creation of donation.
+					\item The system notifies the user of the rejection with what part is missing.
+				\end{enumerate}
+				\\
+			\hline
+				Postcondition & -\\
+			\hline
+				Rules & -\\
+			\hline
+				Explanation & -\\
+			\hline
+		\end{tabular}
+		\begin{tabular}{|m{4cm}|m{11.5cm}|}
+			\hline
+				Use Case Name & Request Shipment\\
+			\hline
+				Use Case ID & 5\\
+			\hline
+				Primary System Actor & Donor\\
+			\hline
+				Participating Actor & -\\
+			\hline
+				Definition & A donor sending a request for their donations to be sent.\\
+			\hline
+				Precondition & The donor is logged in currently and has a set donation.\\
+			\hline
+				Trigger & -\\
+			\hline
+				Basic Path & \begin{enumerate}
+					\item The Donor opens their donations.
+					\item The Donor selects the request shipment option for the donation.
+					\item The system sends a request for shipment.
+					\item The system confirms their request has been sent.
+				\end{enumerate}		
+				\\
+			\hline
+				Alternative Path & -\\
+			\hline
+				Exceptional Case & -\\
+			\hline
+				Postcondition & -\\
+			\hline
+				Rules & -\\
+			\hline
+				Explanation & -\\
+			\hline
+		\end{tabular}
+		\begin{tabular}{|m{4cm}|m{11.5cm}|}
+			\hline
+				Use Case Name & Fill for Aid Registration\\
+			\hline
+				Use Case ID & 6\\
+			\hline
+				Primary System Actor & Indigent\\
+			\hline
+				Participating Actor & -\\
+			\hline
+				Definition & An indigent sending a form to be evaluated their indigent status.\\
+			\hline
+				Precondition & -\\
+			\hline
+				Trigger & -\\
+			\hline
+				Basic Path & \begin{enumerate}
+					\item The indigent opens the system.
+					\item The indigent selects the Fill for Aid registration button.
+					\item The system opens a form for Aid Registration.
+					\item The indigent fills the form.
+					\item The indigent clicks the okay button.
+					\item The system accepts the form and saves it.
+					\item The system indicates the form has been accepted to the user.
+					\item The system puts the user back in the log in menu.
+				\end{enumerate}		
+				\\
+			\hline
+				Alternative Path & -\\
+			\hline
+				Exceptional Case & \begin{enumerate}
+					\item The indigent leaves some blanks in the form.
+					\item The indigent clicks the okay button.
+					\item The system rejects the form as a result.
+					\item The system indicates the form has been rejected to the user.
+				\end{enumerate}
+				\\
+			\hline
+				Postcondition & -\\
+			\hline
+				Rules & -\\
+			\hline
+				Explanation & -\\
+			\hline
+		\end{tabular}
+		\begin{tabular}{|m{4cm}|m{11.5cm}|}
+			\hline
+				Use Case Name & Review Backlog\\
+			\hline
+				Use Case ID & 7\\
+			\hline
+				Primary System Actor & Operation Coordinator\\
+			\hline
+				Participating Actor & -\\
+			\hline
+				Definition & Allow an Operation Coordinator to see a backlog.\\
+			\hline
+				Precondition & The Operation Coordinator is logged in.\\
+			\hline
+				Trigger & -\\
+			\hline
+				Basic Path & \begin{enumerate}
+					\item The Operation Coordinator clicks on the Review Backlog button.
+					\item The System shows related info to the Review Backlog.
+					\item The Operation Coordinator checks the info as long as needed by them.
+					\item The Operation Coordinator clicks the back button.
+					\item The System puts the Operation Coordinator back to the main menu.
+				\end{enumerate}		
+				\\
+			\hline
+				Alternative Path & -\\
+			\hline
+				Exceptional Case & -\\
+			\hline
+				Postcondition & -\\
+			\hline
+				Rules & -\\
+			\hline
+				Explanation & -\\
+			\hline
+		\end{tabular}
+		\begin{tabular}{|m{4cm}|m{11.5cm}|}
+			\hline
+				Use Case Name & Schedule Aid Operation\\
+			\hline
+				Use Case ID & 8\\
+			\hline
+				Primary System Actor & Operation Coordinator\\
+			\hline
+				Participating Actor & -\\
+			\hline
+				Definition & An Operation Coordinator scheduling an operation.\\
+			\hline
+				Precondition & The Operation Coordinator is logged in.\\
+			\hline
+				Trigger & -\\
+			\hline
+				Basic Path & \begin{enumerate}
+					\item The Operation Coordinator clicks on Schedule Aid Operation button.
+					\item The Operation Coordinator chooses between three operation types: Collect Items from Donors to the Warehouse, Ship Items to the Indigent from the Warehouse and Raising Awareness by Sending Messages.
+					\item The Operation Coordinator fills related info for the selected operation.
+					\item The Operation Coordinator clicks the okay button.
+					\item The System saves the form.
+					\item The System notifies the Operation Coordinator of the confirmation.
+					\item The System puts the Operation Coordinator back to the main menu.
+				\end{enumerate}		
+				\\
+			\hline
+				Alternative Path & -\\
+			\hline
+				Exceptional Case & \begin{enumerate}
+					\item The Operation Coordinator fills related info wrongly.
+					\item The Operation Coordinator clicks the okay button.
+					\item The System rejects the form.
+					\item The System notifies the Operation Coordinator of the rejection with related info.
+					\item The System puts the Operation Coordinator back to the form.
+				\end{enumerate}
+				\\
+			\hline
+				Postcondition & -\\
+			\hline
+				Rules & -\\
+			\hline
+				Explanation & -\\
+			\hline
+		\end{tabular}
+		\begin{tabular}{|m{4cm}|m{11.5cm}|}
+			\hline
+				Use Case Name & Manage Users\\
+			\hline
+				Use Case ID & 9\\
+			\hline
+				Primary System Actor & System Administrator\\
+			\hline
+				Participating Actor & -\\
+			\hline
+				Definition & A system administrator managing the users inside the system.\\
+			\hline
+				Precondition & The System Administrator is logged in.\\
+			\hline
+				Trigger & -\\
+			\hline
+				Basic Path & \begin{enumerate}
+					
+				\end{enumerate}		
+				\\
+			\hline
+				Alternative Path & -\\
+			\hline
+				Exceptional Case & \begin{enumerate}
+					\item The System Administrator clicks the Manage Users button.
+					\item The System gives a list of existing users.
+					\item The System Administrator chooses one of the ways to manage a user. The options include: Create User, Query User, Delete User.
+				\end{enumerate}
+				\\
+			\hline
+				Postcondition & -\\
+			\hline
+				Rules & -\\
+			\hline
+				Explanation & -\\
+			\hline
+		\end{tabular}
 	\section{Dynamic Models}
 	\section{Object and Class Model}
 	\section{Sequence Diagram}
