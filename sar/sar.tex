@@ -691,7 +691,35 @@
 			\hline
 		\end{tabular}
 	\section{Dynamic Models}
+		\subsection{Activity Diagrams}
+		\subsection{State Diagrams}
 	\section{Object and Class Model}
+		\includegraphics[width=414pt,height=575pt]{class_diagram.png}
+		\subsection{GUIManager Class}
+			A class to allow for the management of GUI.
+		\subsection{DatabaseManager Class}
+			A class to allow the management of the database.
+		\subsection{User Class}
+			Represents a base user entry inside the database. It is only meant to be extended from.
+		\subsection{Donor Class}
+			Extends User Class. Represents a donor.
+		\subsection{OperationCoordinator Class}
+			Extends User Class. Represents an Operation Coordinator working at the Non-Governmental Organization.
+		\subsection{SystemAdministrator Class}
+			Extends User Class. Represents a System Administrator, someone whose job is to manage the system developed.
+		\subsection{Volunteer Class}
+			Extends User Class. Represents a Volunteer, a voluntary worker in the Non-Governmental Organization.
+		\subsection{Donation Class}
+			Represents a donation set by a Donor.
+		\subsection{ShipmentRequest Class}
+			Represents a Shipment Request sent by a Donor.
+		\subsection{AidRegistration Class}
+			Represents an Aid Registration filled by a possible Indigent.
+		\subsection{AidOperation Class}
+			Represents an Aid Operation set by an Operation Coordinator.
+		\subsection{PersonalProfile Class}
+			Represents a Personal Profile needed to be constructed by a Volunteer.
+		
 	\section{Sequence Diagram}
 	\section{User Interfaces}
 	\section{Glossary and References}
