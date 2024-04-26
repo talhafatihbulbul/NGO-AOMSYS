@@ -39,53 +39,24 @@
 	
 	\tableofcontents
 	
-	\chapter{Introduction}
-		\section{Purpose}
-		\section{Scope}
-		\section{Overview}
-		\section{Reference Material}
-		\section{Definitions and Acronyms}
-	\chapter{System Overview}
-		This is a system for the usage of a Non Governmental Organization that performs aid to the indigent.  
-	\chapter{System Architecture}
-		\section{Architectural Design}
-			
-		\section{Decomposition Description}
-			\includegraphics[width=252pt,height=375pt]{class_diagram.png} %72/100
-			\paragraph{GUIManager Class}
-			A class to allow for the management of GUI.
-			\paragraph{DatabaseManager Class}
-			A class to allow the management of the database.
-			\paragraph{User Class}
-			Represents a base user entry inside the database. It is only meant to be extended from.
-			\paragraph{Donor Class}
-			Extends User Class. Represents a donor.
-			\paragraph{OperationCoordinator Class}
-			Extends User Class. Represents an Operation Coordinator working at the Non-Governmental Organization.
-			\paragraph{SystemAdministrator Class}
-			Extends User Class. Represents a System Administrator, someone whose job is to manage the system developed.
-			\paragraph{Volunteer Class}
-			Extends User Class. Represents a Volunteer, a voluntary worker in the Non-Governmental Organization.
-			\paragraph{Donation Class}
-			Represents a donation set by a Donor.
-			\paragraph{ShipmentRequest Class}
-			Represents a Shipment Request sent by a Donor.
-			\paragraph{AidRegistration Class}
-			Represents an Aid Registration filled by a possible Indigent.
-			\paragraph{AidOperation Class}
-			Represents an Aid Operation set by an Operation Coordinator.
-			\paragraph{PersonalProfile Class}
-			Represents a Personal Profile needed to be constructed by a Volunteer.
-			
-		\section{Design Rationale}
-	\chapter{Data Design}
-		\section{Data Description}
-		\section{Data Dictionary}
-	\chapter{Component Design}
-	\chapter{Human Interface Design}
-		\section{Overview of User Interface}
-		\section{Screen Images}
-		\section{Screen Objects and Actions}
-	\chapter{Requirements Matrix}
-	\chapter{Appendices}
+	\section{Introduction}
+		\subsection{Purpose of System}
+		\subsection{Design Goals}
+		\subsection{Definitions, Acronyms and Abbreviations}
+		\subsection{References}
+		\subsection{Overview}
+	\section{Current Software Architecture}
+	\section{Proposed Software Architecture}
+		\subsection{Overview}
+		\subsection{Subsystem Decomposition}
+		\subsection{Hardware/Software Mapping}
+		\subsection{Persistent Data Management}
+		\subsection{Access Control and Security}
+		\subsection{Boundary Conditions}
+		\subsection{Subsystem Services Glossary}
+	\section{Object Design}
+		\subsection{Object Design Trade-Offs}
+		\subsection{Interface Documentation Guidelines}
+		\subsection{Packages}
+		\subsection{Class Interfaces Glossary}
 \end{document}
