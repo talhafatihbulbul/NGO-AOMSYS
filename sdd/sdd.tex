@@ -2,7 +2,9 @@
 \usepackage{graphicx}
 \usepackage{array}
 \graphicspath{{./images/}}
+
 \begin{document}
+	
 	\begin{titlepage}
 		\begin{center}
 			\includegraphics{ankara_bilim.png}
@@ -62,17 +64,46 @@
 		\section{Overview}
   			\paragraph{}This document provides a detailed description of the NGO Aid Operations Management System (NGO-AOMSYS) software design. It outlines the purpose of the system, design goals, definitions, acronyms, and abbreviations used. The document also includes a reference section listing sources of information. The subsequent sections of the document will delve into the system's architecture, functionality, user interface, database design, and other key aspects.
 	\chapter{Current Software Architecture}
+		-
 	\chapter{Proposed Software Architecture}
 		\section{Overview}
 			\includegraphics{component_diagram.png}
 			\paragraph{}The product being developed is mainly made up of two components. The Database Manager and GUI Manager. Database Manager can be considered as the entire system of backend and GUI Manager the entire system of frontend. Database Manager, as the name implies, is responsible for managing the database. While the GUI Manager handles what to be shown to the user. 
 		\section{Subsystem Decomposition}
 			\includegraphics{subsystem_decomposition_diagram.png}
+			\paragraph{NGO-AOMSYS} This is the system being developed in its entirety, just a formality.
+			\paragraph{Frontend} This is the frontend part of the program.
+			\paragraph{Backend} This is the backend part of the program.
+			\paragraph{GUI Manager} This part of the software is used to communicate with the user through a graphical interface. It depends on Database Manager for the reason of retrieving needed information that needs to presented to the user.
+			\paragraph{Database Manager} This part of the software is used to communicate between data objects and the database. It depends on the Data Objects.
+			\paragraph{Data Objects} This part of the software is used to structure data in an organized manner into objects.
 		\section{Hardware/Software Mapping}
+			\includegraphics{hardware_software_mapping.png}
 		\section{Persistent Data Management}
+			\paragraph{} All data is managed by an instance of class DatabaseManager in program. The instance of DatabaseManager communicates with an actual database to accomplish persistent data. DatabaseManager serves as a center of all data management.
 		\section{Access Control and Security}
+			\begin{tabular}[array]{|m{78pt}|m{78pt}|m{78pt}|m{78pt}|m{78pt}|}%78=textwidth/5, textwidth=390pt
+				\hline
+				&Donor&Operation\newline Coordinator&System\newline Administrator&Volunteer\\
+				\hline
+				Donation\newline&RW&R&RW&R\\
+				\hline
+				Shipment\newline Request&RW&RW&RW&R\\
+				\hline
+				Aid\newline Registration&-&RW&RW&R\\
+				\hline
+				Aid\newline Operation&-&RW&RW&R\\
+				\hline
+				Personal\newline Profile&-&R&RW&RW\\
+				\hline
+				
+			\end{tabular}
 		\section{Boundary Conditions}
+			\paragraph{} The startup only consists of DatabaseManager loading data as their respective class into memory by communicating with the database itself.
+			\paragraph{} There are no other notably different processes in other areas. 
 		\section{Subsystem Services Glossary}
+			\paragraph{Database Manager} It communicates the data with GUI Manager and database using data objects, and thus it is a service for both.
+			\paragraph{GUI Manager} It communicates the data with GUI Manager and user, and thus it is a service for both.
 	\chapter{Object Design}
 		\section{Object Design Trade-Offs}
 		\section{Interface Documentation Guidelines}
