@@ -96,7 +96,6 @@
 				\hline
 				Personal\newline Profile&-&R&RW&RW\\
 				\hline
-				
 			\end{tabular}
 		\section{Boundary Conditions}
 			\paragraph{} The startup only consists of DatabaseManager loading data as their respective class into memory by communicating with the database itself.
@@ -106,7 +105,17 @@
 			\paragraph{GUI Manager} It communicates the data with GUI Manager and user, and thus it is a service for both.
 	\chapter{Object Design}
 		\section{Object Design Trade-Offs}
+			\paragraph{} The only consideration for the design of the objects was ease of implementation due to time constraints.
+			\paragraph{} The design choice depends on centralization using only two classes to manage the entire system as frontend and backend.
+			\paragraph{} The naming convention for the object identifiers is camel case with uppercase letter at the start of the identifier.
 		\section{Interface Documentation Guidelines}
+			\begin{itemize}
+				\item Classes are named using camel case with starting uppercase letter.
+				\item Methods are named using snake case.
+				\item Method parameters are named using snake case.
+				\item All objects being developed as a part of the system are separate files.
+				\item Errors are returned as return values.
+			\end{itemize}
 		\section{Packages}
 		\section{Class Interfaces Glossary}
 \end{document}
