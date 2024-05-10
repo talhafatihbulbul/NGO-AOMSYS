@@ -34,5 +34,8 @@ class User:
     def setSurname(self, input: str):
         self.surname = input
 
+    def setEmail(self, input: str):
+        self.email = input
+
     def getID(self) -> int:
         return self.id
