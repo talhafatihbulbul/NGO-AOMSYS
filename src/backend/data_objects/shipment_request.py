@@ -1,6 +1,3 @@
-import donation
-
-
 class ShipmentRequest:
     last_id: int = 0
 
@@ -10,7 +7,8 @@ class ShipmentRequest:
         self.shipped_by_NGO: bool = False
         ShipmentRequest.last_id = ShipmentRequest.last_id + 1
         self.id: int = ShipmentRequest.last_id
-        self.donation = donation.Donation()
+        self.donation_id: int = 0
+        self.donor_id: int = 0
 
     def getAddress(self):
         return self.address
@@ -35,8 +33,14 @@ class ShipmentRequest:
     def getID(self):
         return self.id
 
-    def getDonation(self) -> donation.Donation:
-        return self.donation
+    def getDonationID(self) -> int:
+        return self.donation_id
 
-    def setDonation(self, input: donation.Donation):
-        self.donation = input
+    def setDonationID(self, input: int):
+        self.donation_id = input
+
+    def getDonorID(self) -> int:
+        return self.donor_id
+
+    def setDonorID(self, input: int):
+        self.donor_id = input

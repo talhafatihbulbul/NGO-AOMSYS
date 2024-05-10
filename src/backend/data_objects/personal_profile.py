@@ -7,6 +7,7 @@ class PersonalProfile:
         self.availability: str = ""
         self.accepted: bool = False
         self.is_pending: bool = True
+        self.volunteer_id: int = 0
 
     def getProfession(self) -> str:
         return self.profession
@@ -48,3 +49,9 @@ class PersonalProfile:
 
     def getIsPending(self) -> bool:
         return self.is_pending
+
+    def getVolunteerID(self) -> int:
+        return self.volunteer_id
+
+    def setVolunteerID(self, input: int):
+        self.volunteer_id = input
