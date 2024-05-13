@@ -12,3 +12,10 @@
 /sdd/sdd.log
 /sdd/sdd.aux
 /sdd/sdd.toc
+/src/bin
+/src/lib64
+/src/lib
+/src/include
+/src/pyvenv.cfg
+/src/Pipfile
+/src/Pipfile.lock
