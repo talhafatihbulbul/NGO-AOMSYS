@@ -36,14 +36,16 @@ def login():
                     app.storage.user["password"]=password.value
                     if isinstance(i, donor.Donor):
                         app.storage.user["type"] = "donor"
-                        ui.navigate.to("donor-menu")
+                        ui.navigate.to("/donor-menu")
                     elif isinstance(i, volunteer.Volunteer):
                         app.storage.user["type"]="volunteer"
-                        ui.navigatei.to("volunteer-menu")
+                        ui.navigate.to("/volunteer-menu")
                     elif isinstance(i,operation_coordinator.OperationCoordinator):
                         app.storage.user["type"]="operation_coordinator"
+                        ui.navigate.to("/operation-coordinator-menu")
                     elif isinstance(i,system_administrator.SystemAdministrator):
                         app.storage.user["type"]="system_administrator"
+                        ui.navigate.to("/system-administrator-menu")
                 else:
                     ui.notify("Info doesn't match")
                     return
@@ -83,6 +85,27 @@ def register():
             ui.notify("Passwords don't match.")
 
     ui.button(text="Sign up", on_click=lambda: register_button_on_click())
+
+@ui.page("/manage-account")
+def manage_account():
+    current_user=dbm.getUserByID(app.storage.user["id"]):
+    if current_user is None:
+        ui.notify("Identification failed.")
+    elif current_user.isPasswordCorrect(app.storage.user["password"]):
+        previous_password=ui.input(label="Previous Password")
+        new_password=ui.input(label="New Password")
+        new_password_again=ui.input(label="New Password Again")
+        def change_password_button_on_click():
+            if new_password.value == new_password_again.value:
+                if current_user.isPasswordCorrect(previous_password.value):
+                
+                else:
+                    ui.notify("Password is incorrect.")
+            else:
+                ui.notify("Passwords don't match.")
+
+    else:
+        ui.notify("Identification failed.")
 
 
 @ui.page("/aid-registration-form")
@@ -219,15 +242,30 @@ def set_personal_profile():
     else:
         ui.notify("Identification failed.")
 #Operation Coordinator Part
-@ui.page("operation-coordinator-menu")
+@ui.page("/operation-coordinator-menu")
 def operation_coordinator_menu():
     current_operation_coordinator=dbm.getOperationcoordinatorByID(app.storage.user["id"])
 
 #System Administrator Part
-@ui.page("system-administrator-menu")
+@ui.page("/system-administrator-menu")
 def system_administrator_menu():
+    ui.button(text="Log Out",on_click=lambda: logout())
+    current_system_administrator=dbm.getSystemAdministratorByID(app.storage.user["id"])
+    if current_system_administrator is None:
+        ui.notify("Identification failed.")
+    elif current_system_administrator.isPasswordCorrect(app.storage.user["password"]):
+        ui.button(text="Check Personal Profiles",on_click=lambda: ui.navigate.to("/check-personal-profiles"))
+        ui.button(text="Manage Users",on_click=lambda: ui.navigate.to("/manage-users"))
+    else:
+        ui.notify("Identification failed.")
+
+@ui.page("/check-personal-profiles")
+def check_personal_profiles():
     pass
 
+@ui.page("/manage-users")
+def manage_users():
+    pass
 #Start the Program
 dbm.addDonor("test","123","abc","def","sjsj",)
 ui.run(storage_secret="Don't tell this storage secret to anyone plsplspls. No one can guess it.  ")

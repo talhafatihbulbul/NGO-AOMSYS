@@ -50,6 +50,11 @@ class DatabaseManager:
             if i.getID() == input:
                 return i
 
+    def getUserByID(self, input: int):
+        for i in (self.donors+self.volunteers+self.operation_coordinators+self.system_administrators):
+            if i.getID() == input:
+                return i
+
     def getDonationByID(self, input: int):
         for i in self.donations:
             if i.getID() == input:
@@ -116,6 +121,7 @@ class DatabaseManager:
         new_donor.setUsername(username)
         new_donor.setPassword(password)
         new_donor.setName(name)
+        new_donor.setSurname(surname)
         new_donor.setEmail(email)
         self.donors.append(new_donor)
 
@@ -124,6 +130,7 @@ class DatabaseManager:
         new_operation_coordinator.setUsername(username)
         new_operation_coordinator.setPassword(password)
         new_operation_coordinator.setName(name)
+        new_operation_coordinator.setSurname(surname)
         new_operation_coordinator.setEmail(email)
         self.operation_coordinators.append(new_operation_coordinator)
 
@@ -132,6 +139,7 @@ class DatabaseManager:
         new_system_administrator.setUsername(username)
         new_system_administrator.setPassword(password)
         new_system_administrator.setName(name)
+        new_system_administrator.setSurname(surname)
         new_system_administrator.setEmail(email)
         self.system_administrators.append(new_system_administrator)
 
@@ -140,6 +148,7 @@ class DatabaseManager:
         new_volunteer.setUsername(username)
         new_volunteer.setPassword(password)
         new_volunteer.setName(name)
+        new_volunteer.setSurname(surname)
         new_volunteer.setEmail(email)
         self.volunteers.append(new_volunteer)
 
