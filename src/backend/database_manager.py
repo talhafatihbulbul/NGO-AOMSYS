@@ -1,17 +1,17 @@
-from data_objects import user
-from data_objects import donor
-from data_objects import system_administrator
-from data_objects import volunteer
-from data_objects import operation_coordinator
-from data_objects import donation
-from data_objects import shipment_request
-from data_objects import personal_profile
-from data_objects import aid_operation
-from data_objects import ship_items_operation
-from data_objects import collect_items_operation
-from data_objects import public_event_operation
-from data_objects import indigent_person
-from data_objects import aid_registration
+from . data_objects import user
+from . data_objects import donor
+from . data_objects import system_administrator
+from . data_objects import volunteer
+from . data_objects import operation_coordinator
+from . data_objects import donation
+from . data_objects import shipment_request
+from . data_objects import personal_profile
+from . data_objects import aid_operation
+from . data_objects import ship_items_operation
+from . data_objects import collect_items_operation
+from . data_objects import public_event_operation
+from . data_objects import indigent_person
+from . data_objects import aid_registration
 
 
 class DatabaseManager:

@@ -1,4 +1,4 @@
-import aid_operation
+from . import aid_operation
 
 
 class CollectItemsOperation(aid_operation.AidOperation):

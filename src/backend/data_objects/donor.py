@@ -1,6 +1,6 @@
-import user
-import donation
-import shipment_request
+from . import user
+from . import donation
+from . import shipment_request
 
 
 class Donor(user.User):
@@ -16,6 +16,7 @@ class Donor(user.User):
         return self.shipment_requests
 
     def addDonation(self, input: donation.Donation):
+        print("called")
         self.donations.append(input)
 
     def removeDonation(self, input: donation.Donation):

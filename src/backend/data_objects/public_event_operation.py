@@ -1,4 +1,4 @@
-import aid_operation
+from . import aid_operation
 
 
 class PublicEventOperation(aid_operation.AidOperation):

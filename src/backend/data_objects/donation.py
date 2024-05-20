@@ -5,8 +5,8 @@ class Donation:
         self.type_of_donation: str = ""
         self.amount: float = 0.0
         self.area: str = ""
-        self.donor_id: int=0
-        self.shipment_request_id: int=0
+        self.donor_id: int = 0
+        self.shipment_request_id: int = 0
         Donation.last_id = Donation.last_id+1
         self.id: int = Donation.last_id
 

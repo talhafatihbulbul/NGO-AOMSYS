@@ -1,4 +1,4 @@
-import indigent_person
+from . import indigent_person
 
 
 class AidRegistration:

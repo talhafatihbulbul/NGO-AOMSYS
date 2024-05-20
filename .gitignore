@@ -19,3 +19,4 @@
 /src/pyvenv.cfg
 /src/Pipfile
 /src/Pipfile.lock
+/src/.nicegui

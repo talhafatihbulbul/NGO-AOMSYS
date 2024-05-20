@@ -1,8 +1,8 @@
-import user
-import aid_operation
-import ship_items_operation
-import collect_items_operation
-import public_event_operation
+from . import user
+from . import aid_operation
+from . import ship_items_operation
+from . import collect_items_operation
+from . import public_event_operation
 
 
 class OperationCoordinator(user.User):
