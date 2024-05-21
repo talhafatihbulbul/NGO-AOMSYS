@@ -18,3 +18,9 @@ class OperationCoordinator(user.User):
 
     def removeAidOperation(self, input: aid_operation.AidOperation):
         self.aid_operations.remove(input)
+
+    def getAidOperationByID(self, input: int):
+        for i in self.aid_operations:
+            if i.getID() == input:
+                return i
+                break

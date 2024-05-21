@@ -27,3 +27,15 @@ class Donor(user.User):
 
     def removeShipmentRequest(self, input: shipment_request.ShipmentRequest):
         self.shipment_requests.remove(input)
+
+    def getDonationByID(self, input: int):
+        for i in self.donations:
+            if i.getID() == input:
+                return i
+                break
+
+    def getShipmentRequestByID(self, input: int):
+        for i in self.shipment_requests:
+            if i.getID() == input:
+                return i
+                break
