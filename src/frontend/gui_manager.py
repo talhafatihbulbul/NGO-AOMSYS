@@ -5,6 +5,9 @@ from backend.data_objects import donor
 from backend.data_objects import volunteer
 from backend.data_objects import operation_coordinator
 from backend.data_objects import system_administrator
+from backend.data_objects import collect_items_operation
+from backend.data_objects import ship_items_operation
+from backend.data_objects import public_event_operation
 from backend import database_manager
 from nicegui import ui, app
 
@@ -114,18 +117,24 @@ def manage_account():
     if current_user is None:
         ui.notify("Identification failed.")
     elif current_user.isPasswordCorrect(app.storage.user["password"]):
-        previous_password = ui.input(label="Previous Password")
-        new_password = ui.input(label="New Password")
-        new_password_again = ui.input(label="New Password Again")
+        previous_password = ui.input(label="Previous Password", password=True, password_toggle_button=True)
+        new_password = ui.input(label="New Password", password=True, password_toggle_button=True)
+        new_password_again = ui.input(label="New Password Again", password=True, password_toggle_button=True)
 
         def change_password_button_on_click():
             if new_password.value == new_password_again.value:
                 if current_user.isPasswordCorrect(previous_password.value):
-                    pass
+                    app.storage.user["password"] = new_password.value
+                    current_user.setPassword(new_password.value)
+                    ui.notify("Password has been changed.")
                 else:
                     ui.notify("Password is incorrect.")
             else:
                 ui.notify("Passwords don't match.")
+
+        ui.button(text="Change Password",
+                  on_click=lambda: change_password_button_on_click())
+
 
     else:
         ui.notify("Identification failed.")
@@ -217,12 +226,7 @@ def add_shipment_request():
         donation_id = ui.input(label="Donation ID")
 
         def add_shipment_request_button_on_click():
-            current_donation = None
-            for i in current_donor.getDonations():
-                ui.notify(i)
-                if i.getID() == int(donation_id.value):
-                    current_donation = i
-                    break
+            current_donation = current_donor.getDonationByID(donation_id.value)
             if current_donation is None:
                 ui.notify("Donation ID isn't found.")
             else:
@@ -291,7 +295,53 @@ def set_personal_profile():
 
 @ui.page("/operation-coordinator-menu")
 def operation_coordinator_menu():
+    item_operations_columns=[
+            {"name": "type_of_operation", "label": "Type Of Operation", "field": "type_of_operation"},
+            {"name": "address", "label": "Address", "field": "address"},
+            {"name": "destination_address", "label": "Destination Address", "field": "destination_address"},
+            {"name": "id", "label": "ID", "field": "id"}
+            ]
+    event_operations_columns=[
+            {"name": "event_name", "label":"Public Event Name", "field": "event_name"},
+            {"name": "address", "label":"Event Address", "field": "address"},
+            {"name": "id", "label": "ID", "field": "id"}
+            ]
+    ui.button(text="Log Out", on_click=lambda: logout())
     current_operation_coordinator = dbm.getOperationcoordinatorByID(app.storage.user["id"])
+    if current_operation_coordinator is None:
+        ui.notify("Identification failed")
+    elif current_operation_coordinator.isPasswordCorrect(app.storage.user["password"]):
+        item_operations_table = ui.table(columns=item_operations_columns, rows=[])
+        event_operations_table = ui.table(columns=event_operations_columns, rows=[])
+        for i in current_operation_coordinator.getAidOperations():
+            if (
+                isinstance(i, collect_items_operation.CollectItemsOperation)
+                or
+                isinstance(i, ship_items_operation.ShipItemsOperation)
+            ):
+                if isinstance(i, collect_items_operation.CollectItemsOperation):
+                    item_operations_table.add_rows({
+                        "type_of_operation": "Collect Items",
+                        "address": i.getAddress(),
+                        "destination_address": i.getDestinationAddress(),
+                        "id": i.getID()
+                        })
+                elif isinstance(i, ship_items_operation.ShipItemsOperation):
+                    item_operations_table.add_rows({
+                            "type_of_operation": "Ship Items",
+                            "address": i.getAddress(),
+                            "destination_address": i.getDestinationAddress(),
+                            "id": i.getID()
+                        })
+            elif isinstance(i, public_event_operation.PublicEventOperation):
+                event_operations_table.add_rows({
+                    "event_name": i.getEventName(),
+                    "address": i.getAddress(),
+                    "id": i.getID()
+                    })
+        ui.button(text="")
+    else:
+        ui.notify("Identification failed.")
 
 # System Administrator Part
 
