@@ -22,6 +22,9 @@ class User:
     def getSurname(self) -> str:
         return self.surname
 
+    def getEmail(self) -> str:
+        return self.email
+
     def setUsername(self, input: str):
         self.username = input
 

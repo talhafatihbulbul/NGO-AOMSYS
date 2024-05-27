@@ -152,26 +152,27 @@ class DatabaseManager:
         new_volunteer.setEmail(email)
         self.volunteers.append(new_volunteer)
 
-    def addDonation(self, type_of_donation: str, amount: float, area: str, donor: donor.Donor):
+    def addDonation(self, type_of_donation: str, amount: float, area: str, donor_input: donor.Donor):
         new_donation = donation.Donation()
         new_donation.setTypeOfDonation(type_of_donation)
         new_donation.setAmount(amount)
         new_donation.setArea(area)
 
-        new_donation.setDonorID(donor.getID())
+        new_donation.setDonorID(donor_input.getID())
 
-        donor.addDonation(new_donation)
+        donor_input.addDonation(new_donation)
         self.donations.append(new_donation)
 
-    def addShipmentRequest(self, address: str, self_shipped: bool, donation: donation.Donation, donor: donor.Donor):
+    def addShipmentRequest(self, address: str, self_shipped: bool, donation_input: donation.Donation, donor_input: donor.Donor):
         new_shipment_request = shipment_request.ShipmentRequest()
         new_shipment_request.setAddress(address)
         new_shipment_request.setSelfShipped(self_shipped)
-        new_shipment_request.setDonationID(donation.getID())
+        new_shipment_request.setDonationID(donation_input.getID())
 
-        new_shipment_request.setDonorID(donor.getID())
+        new_shipment_request.setDonorID(donor_input.getID())
+        donation_input.setShipmentRequestID(new_shipment_request.getID())
 
-        donor.addShipmentRequest(new_shipment_request)
+        donor_input.addShipmentRequest(new_shipment_request)
         self.shipment_requests.append(new_shipment_request)
 
     def addAidRegistration(self, number_of_children: int, monthly_income: float, address: str, household_members: list, monthly_expenditures: str, nature_of_support_needed: str):
@@ -204,7 +205,7 @@ class DatabaseManager:
         new_personal_profile.setAvailability(availability)
         new_personal_profile.setAccepted(accepted)
 
-        new_personal_profile.setVolunteerID(volunteer.getID())
+        new_personal_profile.setVolunteerID(volunteer_input.getID())
 
         volunteer_input.setPersonalProfile(new_personal_profile)
         self.personal_profiles.append(new_personal_profile)

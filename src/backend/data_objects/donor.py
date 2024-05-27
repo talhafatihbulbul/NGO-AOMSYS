@@ -16,7 +16,6 @@ class Donor(user.User):
         return self.shipment_requests
 
     def addDonation(self, input: donation.Donation):
-        print("called")
         self.donations.append(input)
 
     def removeDonation(self, input: donation.Donation):
