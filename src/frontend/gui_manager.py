@@ -143,6 +143,14 @@ def manage_account():
         ui.button(text="Change Password",
                   on_click=lambda: change_password_button_on_click())
 
+        email = ui.input(label="New Email")
+
+        def change_email_button_on_click():
+            current_user.setEmail(email.value)
+            ui.navigate.to("/manage-account")
+
+        ui.button(text="Change Email", on_click=lambda: change_email_button_on_click())
+
 
     else:
         ui.notify("Identification failed.")
