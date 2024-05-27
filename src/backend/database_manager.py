@@ -275,3 +275,13 @@ class DatabaseManager:
             self.collect_items_operations.remove(aid_operation_input)
         elif isinstance(aid_operation_input, public_event_operation.PublicEventOperation):
             self.public_event_operations.remove(aid_operation_input)
+
+    def removeUser(self, user_input: user.User):
+        if isinstance(user_input, donor.Donor):
+            self.removeDonor(user_input)
+        elif isinstance(user_input, volunteer.Volunteer):
+            self.removeVolunteer(user_input)
+        elif isinstance(user_input, operation_coordinator.OperationCoordinator):
+            self.removeOperationCoordinator(user_input)
+        elif isinstance(user_input, system_administrator.SystemAdministrator):
+            self.removeSystemAdministrator(user_input)

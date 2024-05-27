@@ -39,7 +39,7 @@ class AidRegistration:
         self.monthly_income = input
 
     def setAddress(self, input: str):
-        self.adress = input
+        self.address = input
 
     def addHouseholdMember(self, input: indigent_person.IndigentPerson):
         self.household_members.append(input)
