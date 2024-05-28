@@ -206,6 +206,7 @@ class DatabaseManager:
         new_personal_profile.setAccepted(accepted)
 
         new_personal_profile.setVolunteerID(volunteer_input.getID())
+        self.removePersonalProfile(volunteer_input.getPersonalProfile())
 
         volunteer_input.setPersonalProfile(new_personal_profile)
         self.personal_profiles.append(new_personal_profile)
